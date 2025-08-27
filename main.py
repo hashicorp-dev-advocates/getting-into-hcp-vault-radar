@@ -2,7 +2,7 @@ import os
 
 import boto3
 
-SESSION_KEY = "7rR>8(EN4Vp@35*VpA:0F=£2"
+AZURE = "abc7Q~defghijklmnopqrs0t123456789-_.~"
 
 sts_client = boto3.client(
     service_name="sts",
