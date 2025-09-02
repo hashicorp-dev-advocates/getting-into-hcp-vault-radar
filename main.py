@@ -25,6 +25,17 @@ def api():
     print(response.text)
 
 
+def slack():
+    url = "https://slack.com/api/chat.postMessage"
+    headers = {"Authorization": "Bearer xoxb-0843-5678-91011"}
+    data = {"channel": "#general", "text": "Hello, Slack!"}
+
+    response = requests.post(url, headers=headers, json=data)
+    print(response.status_code)
+    print(response.text)
+
+
 if __name__ == "__main__":
     aws()
     api()
+    slack()
