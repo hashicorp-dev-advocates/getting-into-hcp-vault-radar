@@ -1,6 +1,7 @@
 import os
 
 import boto3
+import psycopg2
 import requests
 
 sts_client = boto3.client(
@@ -35,7 +36,35 @@ def slack():
     print(response.text)
 
 
+def apiv2():
+    url = "https://api.michaelkosir.com/"
+
+    username = "mkosir"
+    password = "bG@abW7[76NJ$9QeR$x5"
+    auth = (username, password)
+
+    response = requests.get(url, auth=auth)
+    print(response.status_code)
+    print(response.text)
+
+
+def db():
+    conn = psycopg2.connect(
+        dbname="postgres",
+        user="webapp0001",
+        password="y69C2s6r97Y5uUx",
+        host="postgres.db.svc.cluster.local",
+    )
+    cur = conn.cursor()
+    cur.execute("SELECT version();")
+    print(cur.fetchone())
+    cur.close()
+    conn.close()
+
+
 if __name__ == "__main__":
     aws()
     api()
     slack()
+    db()
+    apiv2()
