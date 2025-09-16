@@ -10,6 +10,10 @@ sts_client = boto3.client(
     region_name="us-east-2",
 )
 
+WEATHER_API = "A8F3F608-6BF2-49EE-9A25-DA4E9B394813"
+
+DB_USER = "app001"
+DB_PWD = "CDA92C26-B8E7-4A33-8336-671E52BF8C35"
 
 def aws():
     response = sts_client.get_caller_identity()
